@@ -17,5 +17,12 @@ public class Penjat {
                 "FITXER", "CADENA", "BUCLE", "CLASSE"
         };
 
+        boolean tornarAJugar;
+
+        do {
+           // partida(lector, paraules);
+            tornarAJugar = preguntarTornarAJugar(lector);
+        } while (tornarAJugar);
+
     }
 }
