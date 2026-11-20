@@ -83,6 +83,13 @@ public class Penjat {
                 }
 
                 guanyat = totDescobert(progres);
+
+                if (guanyat) {
+                    System.out.println("Enhorabona! Has endevinat la paraula: " + secreta);
+                } else {
+                    System.out.println("Has perdut! La paraula era: " + secreta);
+                }
+
             }
         }
     }
