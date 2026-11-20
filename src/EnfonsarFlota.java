@@ -48,6 +48,6 @@ void main() {
         }
     }
 
-    System.out.println("¡Ganaste!");
+    System.out.println("¡Has ganado!!");
 }
 
