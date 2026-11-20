@@ -6,5 +6,9 @@ public class Penjat {
 
     public static void jugar() {
 
+        Scanner lector = new Scanner(System.in);
+
+        System.out.println();
+        System.out.println("--- EL PENJAT ---");
     }
 }
