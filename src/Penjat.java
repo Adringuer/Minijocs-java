@@ -65,6 +65,8 @@ public class Penjat {
                 continue;
             }
 
+            dites += lletra + " ";
+
         }
     }
 }
