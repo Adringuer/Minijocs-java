@@ -30,6 +30,12 @@ public class Penjat {
 
             int pos = (int) (Math.random() * paraules.length);
             String secreta = paraules[pos];
+
+            char[] progres = new char[secreta.length()];
+
+            for (int i = 0; i < progres.length; i++) {
+                progres[i] = '_';
+            }
         }
     }
 }
