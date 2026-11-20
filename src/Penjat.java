@@ -91,6 +91,7 @@ public class Penjat {
                 }
 
                 private static void mostrarEstat(char[] progres, int errors, String dites)
+                private static boolean totDescobert(char[] progres)
 
             }
         }
