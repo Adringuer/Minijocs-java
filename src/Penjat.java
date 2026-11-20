@@ -42,7 +42,7 @@ public class Penjat {
             boolean guanyat = false;
 
             while (errors < MAX_ERRORS && !guanyat) {
-
+                mostrarEstat(progres, errors, dites);
             }
 
 
