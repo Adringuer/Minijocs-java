@@ -28,6 +28,8 @@ public class Penjat {
 
         private static void partida(Scanner lector, String[] paraules) {
 
+            int pos = (int) (Math.random() * paraules.length);
+            String secreta = paraules[pos];
         }
     }
 }
