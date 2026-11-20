@@ -36,6 +36,15 @@ public class Penjat {
             for (int i = 0; i < progres.length; i++) {
                 progres[i] = '_';
             }
+
+            int errors = 0;
+            String dites = "";
+            boolean guanyat = false;
+
+            
+
+
+
         }
     }
 }
