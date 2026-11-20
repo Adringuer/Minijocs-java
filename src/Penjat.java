@@ -8,7 +8,20 @@ public class Penjat {
         String[] paraules = {
                 "ORDINADOR", "PROGRAMA", "TECLAT", "PANTALLA",
                 "SERVIDOR", "NAVEGADOR", "DISSENY", "VARIABLE",
-                "FITXER", "CADENA", "BUCLE", "CLASSE"
+                "FITXER", "CADENA", "BUCLE", "CLASSE",
+                "RATOLI", "IMPRESSORA", "PROGRAMACIO", "INTERNET",
+                "XARXA", "PROCESSADOR", "MEMORIA", "DISC",
+                "APLICACIO", "CODI", "ALGORITME", "ROBOT",
+                "SISTEMA", "DADES", "BASEDEDADES", "CONTRASENYA",
+                "USUARI", "CONNEXIO", "DESCARREGA", "PENJAR",
+                "ENLLAC", "CORREU", "MISSATGE", "DOCUMENT",
+                "CARPETA", "ICONA", "FINESTRA", "ESCRIPTORI",
+                "PROGRAMADOR", "ENGINYER", "TECNOLOGIA", "DIGITAL",
+                "SEGURETAT", "VIRUS", "ANTIVIRUS", "NUVOL",
+                "XIFRAT", "COMANDA", "TERMINAL", "COMPILADOR",
+                "DEPURACIO", "FUNCIO", "METODE", "OBJECTE",
+                "HERENCIA", "ATRIBUT", "PARAMETRE", "LLIBRERIA",
+                "ACTUALITZACIO", "INTELIGENCIA"
         };
         String[] dibuixos = {
                 "  +----------+\n  |          |\n  |          |\n  |          |\n  |          |\n  |          |\n__|__________",
