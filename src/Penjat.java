@@ -90,6 +90,8 @@ public class Penjat {
                     System.out.println("Has perdut! La paraula era: " + secreta);
                 }
 
+                private static void mostrarEstat(char[] progres, int errors, String dites)
+
             }
         }
     }
