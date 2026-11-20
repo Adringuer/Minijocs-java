@@ -26,5 +26,8 @@ public class Penjat {
 
         System.out.println("Gràcies per jugar! Tornant al menú...");
 
+        private static void partida(Scanner lector, String[] paraules) {
+
+        }
     }
 }
