@@ -2,9 +2,11 @@ import java.util.Scanner;
 
 public class Penjat {
 
+    static Scanner lectorCompartit;
+
     public static void main(String[] args) {
         final int MAX_ERRORS = 6;
-        Scanner lector = new Scanner(System.in);
+        Scanner lector = lectorCompartit == null ? new Scanner(System.in) : lectorCompartit;
         String[] paraules = {
                 "ORDINADOR", "PROGRAMA", "TECLAT", "PANTALLA",
                 "SERVIDOR", "NAVEGADOR", "DISSENY", "VARIABLE",
