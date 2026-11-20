@@ -2,9 +2,8 @@ import java.util.Scanner;
 
 public class Penjat {
 
-    private static final int MAX_ERRORS = 6;
-
-    public static void jugar() {
+    public static void main(String[] args) {
+        final int MAX_ERRORS = 6;
         Scanner lector = new Scanner(System.in);
         String[] paraules = {
                 "ORDINADOR", "PROGRAMA", "TECLAT", "PANTALLA",
@@ -24,110 +23,107 @@ public class Penjat {
                 "HERENCIA", "ATRIBUT", "PARAMETRE", "LLIBRERIA",
                 "ACTUALITZACIO", "INTELIGENCIA"
         };
+        String[] dibuixos = {
+                "  +----------+\n  |          |\n  |          |\n  |          |\n  |          |\n  |          |\n__|__________",
+                "  +----------+\n  |          |\n  |          |\n  |          O\n  |          |\n  |          |\n__|__________",
+                "  +----------+\n  |          |\n  |          |\n  |          O\n  |          |\n  |          |\n__|__________",
+                "  +----------+\n  |          |\n  |          |\n  |          O\n  |         /|\n  |          |\n__|__________",
+                "  +----------+\n  |          |\n  |          |\n  |          O\n  |         /|\\\n  |          |\n__|__________",
+                "  +----------+\n  |          |\n  |          |\n  |          O\n  |         /|\\\n  |         /\n__|__________",
+                "  +----------+\n  |          |\n  |          |\n  |          O\n  |         /|\\\n  |         / \\\n__|__________"
+        };
 
-        System.out.println();
-        System.out.println("--- EL PENJAT ---");
-
-        boolean tornarAJugar;
+        String respostaTornar;
         do {
-            partida(lector, paraules);
-            tornarAJugar = preguntarTornarAJugar(lector);
-        } while (tornarAJugar);
-
-        System.out.println("Gràcies per jugar! Tornant al menú...");
-    }
-
-    private static void partida(Scanner lector, String[] paraules) {
-        int pos = (int) (Math.random() * paraules.length);
-        String secreta = paraules[pos];
-        char[] progres = new char[secreta.length()];
-
-        for (int i = 0; i < progres.length; i++) {
-            progres[i] = '_';
-        }
-
-        int errors = 0;
-        StringBuilder dites = new StringBuilder();
-        boolean guanyat = false;
-
-        while (errors < MAX_ERRORS && !guanyat) {
-            mostrarEstat(progres, errors, dites);
-            System.out.print("Introdueix una lletra: ");
-            String entrada = lector.nextLine().trim();
-
-            if (entrada.length() != 1) {
-                System.out.println("Avís: has d'introduir només 1 caràcter.");
-                continue;
-            }
-
-            char lletra = Character.toUpperCase(entrada.charAt(0));
-            if (!Character.isLetter(lletra)) {
-                System.out.println("Avís: no és una lletra.");
-                continue;
-            }
-
-            if (dites.indexOf(String.valueOf(lletra)) >= 0) {
-                System.out.println("Avís: ja has dit aquesta lletra.");
-                continue;
-            }
-
-            dites.append(lletra).append(' ');
-            boolean trobada = false;
+            int pos = (int) (Math.random() * paraules.length);
+            String secreta = paraules[pos];
+            String progres = "";
 
             for (int i = 0; i < secreta.length(); i++) {
-                if (secreta.charAt(i) == lletra) {
-                    progres[i] = lletra;
-                    trobada = true;
+                progres += "_";
+            }
+
+            int errors = 0;
+            String dites = "";
+            boolean guanyat = false;
+
+            while (errors < MAX_ERRORS && !guanyat) {
+                System.out.println();
+                System.out.println("  ------------------------------------------------");
+                System.out.println("  J O C   D E L   P E N J A T");
+                System.out.println("  ------------------------------------------------");
+                System.out.println();
+                System.out.println(dibuixos[errors]);
+                System.out.println();
+                System.out.println("  PARAULA");
+                System.out.print("  ");
+                for (int i = 0; i < progres.length(); i++) {
+                    System.out.print(progres.charAt(i) + " ");
                 }
+                System.out.println();
+                System.out.println();
+                System.out.println("  ERRORS       " + errors + " / " + MAX_ERRORS);
+                System.out.println("  LLETRES      " + (dites.isEmpty() ? "-" : dites.trim()));
+                System.out.println("  ------------------------------------------------");
+                System.out.print("  Escriu una lletra  > ");
+                String entrada = lector.nextLine().trim();
+
+                if (entrada.length() != 1) {
+                    System.out.println("  Avís: introdueix només una lletra.");
+                    continue;
+                }
+
+                char lletra = Character.toUpperCase(entrada.charAt(0));
+                if (!Character.isLetter(lletra)) {
+                    System.out.println("  Avís: el caràcter introduït no és una lletra.");
+                    continue;
+                }
+
+                if (dites.indexOf(lletra) >= 0) {
+                    System.out.println("  Ja havies provat aquesta lletra.");
+                    continue;
+                }
+
+                dites += lletra + " ";
+                boolean trobada = false;
+
+                for (int i = 0; i < secreta.length(); i++) {
+                    if (secreta.charAt(i) == lletra) {
+                        progres = progres.substring(0, i) + lletra + progres.substring(i + 1);
+                        trobada = true;
+                    }
+                }
+
+                if (trobada) {
+                    System.out.println("  Molt bé. La lletra hi és.");
+                } else {
+                    errors++;
+                    System.out.println("  Aquesta lletra no hi és.");
+                }
+
+                guanyat = !progres.contains("_");
             }
 
-            if (trobada) {
-                System.out.println("Bé! La lletra hi és.");
+            if (guanyat) {
+                System.out.println("\n  ENHORABONA");
+                System.out.println("  Has endevinat la paraula: " + secreta);
             } else {
-                errors++;
-                System.out.println("Ho sento, la lletra no hi és.");
+                System.out.println("\n  PARTIDA ACABADA");
+                System.out.println("  La paraula era: " + secreta);
             }
 
-            guanyat = totDescobert(progres);
-        }
+            while (true) {
+                System.out.print("\n  Una altra partida? (s/n) > ");
+                respostaTornar = lector.nextLine().trim();
 
-        if (guanyat) {
-            mostrarEstat(progres, errors, dites);
-            System.out.println("Enhorabona! Has endevinat la paraula: " + secreta);
-        } else {
-            System.out.println("Has perdut! La paraula era: " + secreta);
-        }
-    }
+                if (respostaTornar.equalsIgnoreCase("s") || respostaTornar.equalsIgnoreCase("n")) {
+                    break;
+                }
 
-    private static void mostrarEstat(char[] progres, int errors, StringBuilder dites) {
-        System.out.println();
-        System.out.println("Paraula: " + String.valueOf(progres));
-        System.out.println("Errors: " + errors + "/" + MAX_ERRORS);
-        System.out.println("Lletres dites: " + dites);
-    }
-
-    private static boolean totDescobert(char[] progres) {
-        for (char lletra : progres) {
-            if (lletra == '_') {
-                return false;
+                System.out.println("  Respon amb 's' o 'n'.");
             }
-        }
-        return true;
-    }
+        } while (respostaTornar.equalsIgnoreCase("s"));
 
-    private static boolean preguntarTornarAJugar(Scanner lector) {
-        while (true) {
-            System.out.print("Vols tornar a jugar? (s/n): ");
-            String resposta = lector.nextLine().trim();
-
-            if (resposta.equalsIgnoreCase("s")) {
-                return true;
-            }
-            if (resposta.equalsIgnoreCase("n")) {
-                return false;
-            }
-
-            System.out.println("Avís: respon amb 's' o 'n'.");
-        }
+        System.out.println("\n  Gràcies per jugar. Fins aviat.");
     }
 }

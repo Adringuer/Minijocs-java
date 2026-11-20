@@ -33,7 +33,10 @@ public class Main {
             switch (opcion) {
 
                 case 1:
-                    System.out.println("Abriendo El Ahorcado...");
+                    teclado.nextLine();
+                    Penjat.lectorCompartit = teclado;
+                    Penjat.main(args);
+                    Penjat.lectorCompartit = null;
                     break;
 
                 case 2:
