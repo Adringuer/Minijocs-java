@@ -10,5 +10,12 @@ public class Penjat {
 
         System.out.println();
         System.out.println("--- EL PENJAT ---");
+
+        String[] paraules = {
+                "ORDINADOR", "PROGRAMA", "TECLAT", "PANTALLA",
+                "SERVIDOR", "NAVEGADOR", "DISSENY", "VARIABLE",
+                "FITXER", "CADENA", "BUCLE", "CLASSE"
+        };
+
     }
 }
