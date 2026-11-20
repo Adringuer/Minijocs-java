@@ -59,6 +59,12 @@ public class Penjat {
                 System.out.println("Avís: no és una lletra.");
                 continue;
             }
+
+            if (dites.indexOf(lletra) != -1) {
+                System.out.println("Avís: ja has dit aquesta lletra.");
+                continue;
+            }
+
         }
     }
 }
