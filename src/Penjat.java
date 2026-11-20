@@ -81,6 +81,8 @@ public class Penjat {
                     errors++;
                     System.out.println("Ho sento, la lletra no hi és.");
                 }
+
+                guanyat = totDescobert(progres);
             }
         }
     }
