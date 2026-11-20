@@ -53,6 +53,12 @@ public class Penjat {
                 continue;
             }
 
+            char lletra = Character.toUpperCase(entrada.charAt(0));
+
+            if (!Character.isLetter(lletra)) {
+                System.out.println("Avís: no és una lletra.");
+                continue;
+            }
         }
     }
 }
