@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 /**
  * JOC 4 - SOPA DE LLETRES
- * Responsable: Alumne D
+ * Responsable: Adrián Bellido
  * Branca: sopa
  *
  * Trobar 5 paraules amagades en una matriu de lletres de 8x8.
@@ -16,6 +16,15 @@ public class SopaLletres {
         System.out.println();
         System.out.println("--- SOPA DE LLETRES ---");
         System.out.println("Joc en construcció...");
+
+        char[][] sopa = new char[8][8];
+        for (int f = 0; f < 8; f++) {
+            for (int c = 0; c < 8; c++) {
+                sopa[f][c] = '.';
+            }
+        }
+        String[] paraules = {"latigo","camino","fuente","tiempo","grande"};
+        boolean[] trobades= new boolean[5];
 
         // TODO 1: char[][] sopa (8x8) omplerta de '.'
         // TODO 2: String[] amb 5 paraules (màxim 6 lletres) i boolean[] de trobades
