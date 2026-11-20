@@ -41,7 +41,9 @@ public class Penjat {
             String dites = "";
             boolean guanyat = false;
 
-            
+            while (errors < MAX_ERRORS && !guanyat) {
+
+            }
 
 
 
