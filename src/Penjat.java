@@ -74,6 +74,13 @@ public class Penjat {
                     progres[i] = lletra;
                     trobada = true;
                 }
+
+                if (trobada) {
+                    System.out.println("Bé! La lletra hi és.");
+                } else {
+                    errors++;
+                    System.out.println("Ho sento, la lletra no hi és.");
+                }
             }
         }
     }
