@@ -45,6 +45,8 @@ public class Penjat {
                 mostrarEstat(progres, errors, dites);
             }
 
+            System.out.print("Introdueix una lletra: ");
+            String entrada = lector.nextLine().trim();
 
 
         }
