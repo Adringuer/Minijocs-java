@@ -24,5 +24,7 @@ public class Penjat {
             tornarAJugar = preguntarTornarAJugar(lector);
         } while (tornarAJugar);
 
+        System.out.println("Gràcies per jugar! Tornant al menú...");
+
     }
 }
