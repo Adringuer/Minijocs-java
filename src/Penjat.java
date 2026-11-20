@@ -67,6 +67,14 @@ public class Penjat {
 
             dites += lletra + " ";
 
+            boolean trobada = false;
+
+            for (int i = 0; i < secreta.length(); i++) {
+                if (secreta.charAt(i) == lletra) {
+                    progres[i] = lletra;
+                    trobada = true;
+                }
+            }
         }
     }
 }
