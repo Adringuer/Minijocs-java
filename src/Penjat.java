@@ -48,6 +48,10 @@ public class Penjat {
             System.out.print("Introdueix una lletra: ");
             String entrada = lector.nextLine().trim();
 
+            if (entrada.length() != 1) {
+                System.out.println("Avís: has d'introduir només 1 caràcter.");
+                continue;
+            }
 
         }
     }
