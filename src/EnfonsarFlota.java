@@ -1,29 +1,53 @@
 import java.util.Scanner;
+import java.util.Random;
+void main() {
+    Scanner sc = new Scanner(System.in);
+    String[][] tablero = new String[6][6];
+    Random random = new Random();
+    random.nextInt(6);
 
-/**
- * JOC 3 - ENFONSAR LA FLOTA
- * Responsable: Alumne C
- * Branca: flota
- *
- * Enfonsar 5 vaixells amagats en un tauler de 5x5 amb un màxim de 15 trets.
- * Requisits complets: document de requisits, apartat "Joc 3 - Enfonsar la flota".
- */
-public class EnfonsarFlota {
-
-    public static void jugar() {
-        Scanner sc = new Scanner(System.in); // No el tanqueu (sc.close()): tancaria també el del menú
-
-        System.out.println();
-        System.out.println("--- ENFONSAR LA FLOTA ---");
-        System.out.println("Joc en construcció...");
-
-        // TODO 1: boolean[][] vaixells (5x5) i char[][] visible (5x5, omplert de '~')
-        // TODO 2: col·locar 5 vaixells a l'atzar sense repetir posició
-        // TODO 3: bucle de la partida (fins enfonsar-los tots o gastar 15 trets)
-        //         - dibuixar el tauler visible amb les coordenades
-        //         - llegir i validar fila i columna (0-4, casella no disparada)
-        //         - "Aigua!" (O) o "Tocat i enfonsat!" (X)
-        // TODO 4: missatge final (guanyat / perdut + on eren els vaixells)
-        // TODO 5: preguntar "Vols tornar a jugar? (s/n)"
+    for (int fila = 0; fila < 5; fila++) {
+        for (int columna = 0; columna < 5; columna++) {
+            tablero[fila][columna] = ".";
+        }
     }
+    int quedan = 3;
+    for (int i = 1; i <= quedan; i++) {
+        int fila = random.nextInt(6);
+        int columna = random.nextInt(6);
+        tablero[fila][columna] = "B";
+    }
+
+    for (int i = 0; i < 40; i++) {
+        System.out.println();
+    }
+    while (quedan > 0) {
+        for (int fila = 0; fila < 5; fila++) {
+            for (int columna = 0; columna < 5; columna++) {
+                if (tablero[fila][columna].equals("B")) {
+                    System.out.print(". ");
+                } else {
+                    System.out.print(tablero[fila][columna] + " ");
+                }
+            }
+            System.out.println();
+        }
+
+        System.out.print("Fila (1-5): ");
+        int f = sc.nextInt() - 1;
+        System.out.print("Columna (1-5): ");
+        int c = sc.nextInt() - 1;
+
+        if (tablero[f][c].equals("B")) {
+            System.out.println("¡Tocado y hundido!");
+            tablero[f][c] = "X";
+            quedan--;
+        } else {
+            System.out.println("Agua");
+            tablero[f][c] = "o";
+        }
+    }
+
+    System.out.println("¡Ganaste!");
 }
+
